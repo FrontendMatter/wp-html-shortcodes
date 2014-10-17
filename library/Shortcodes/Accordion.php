@@ -1,16 +1,16 @@
 <?php namespace Mosaicpro\WP\Plugins\HGShortcodes;
 
-use Mosaicpro\HtmlGenerators\Button\Button;
+use Mosaicpro\HtmlGenerators\Accordion\Accordion;
 use Mosaicpro\WpCore\Shortcode;
 
 /**
- * Class Button_Shortcode
+ * Class Accordion_Shortcode
  * @package Mosaicpro\WP\Plugins\HGShortcodes
  */
-class Button_Shortcode extends Shortcode
+class Accordion_Shortcode extends Shortcode
 {
     /**
-     * Holds a Button_Shortcode instance
+     * Holds an Accordion_Shortcode instance
      * @var
      */
     protected static $instance;
@@ -20,9 +20,9 @@ class Button_Shortcode extends Shortcode
      */
     public function addShortcode()
     {
-        add_shortcode('button', function($atts)
+        add_shortcode('accordion', function($atts)
         {
-            $atts = shortcode_atts( ['style' => 'default', 'size' => 'default', 'label' => 'Button'], $atts );
+            $atts = shortcode_atts( ['style' => 'btn-default', 'size' => 'default', 'label' => 'Button'], $atts );
             $attributes = [];
 
             // style
@@ -33,7 +33,7 @@ class Button_Shortcode extends Shortcode
                 $attributes['class'] .= ' btn-' . $atts['size'];
 
             // create button
-            return Button::make($atts['label'])->addAttributes($attributes);
+            // return Button::make($atts['label'])->addAttributes($attributes);
         });
     }
 }

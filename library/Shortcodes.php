@@ -61,9 +61,7 @@ class Shortcodes extends PluginGeneric
      */
     private function initBuilderComponents()
     {
-        add_action('admin_enqueue_scripts', function(){
-            wp_enqueue_script($this->getPrefix('builder-components'), plugin_dir_url(__DIR__) . '/assets/js/builder.js', ['jquery'], '1.0', true);
-        });
+
     }
 
     /**
